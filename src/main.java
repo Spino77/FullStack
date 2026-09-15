@@ -32,13 +32,13 @@ public class main {
     public static void menuPrincipal() {
         System.out.println("1. Gestió d'usuaris\n" +
                 "2. Veure estat del sistema\n" +
-                "0. Sortir\n");
+                "0. Sortir");
     }
 
     public static int submenu(Scanner sc, String[] usuaris, int contador) {
         System.out.println("1. Llistar usuaris\n" +
                 "2. Afegir nou usuari\n" +
-                "0. Tornar al menú principal\n");
+                "0. Tornar al menú principal");
 
         switch (sc.nextInt()) {
             case 1:
