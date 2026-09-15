@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
@@ -21,7 +22,7 @@ public class main {
                         return;
                 }
             }
-            catch (Exception e) {
+            catch (InputMismatchException e) {
                 System.out.println("Input incorrecte");
                 sc.next();
             }
