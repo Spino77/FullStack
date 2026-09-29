@@ -31,7 +31,7 @@ public class ExerciciL {
         llistaPersones.sort((per1, per2) -> per1.getNom().compareTo(per2.getNom()));
 
         // 2 - Canviar per una Lambda
-        llistaPersones.forEach(p -> System.out.println());
+        llistaPersones.forEach(p -> System.out.println(p));
 
         // 3 - Canvia per una classe anònima
         System.out.println("\n3-4");
@@ -49,24 +49,14 @@ public class ExerciciL {
         });
 
         // 4 - Canvia per una crida al mètode per referència
-
         llistaPersones.forEach(System.out::println);
-        //crec que es aixo pero no estic segur
-
-        /*
-        for(Persona p: llistaPersones) {
-            System.out.println(p);
-        };
-        */
 
         // 5 - Canvia l'ompliment d'aquest map per un forEach amb lambda
         llistaPersones.forEach(per1 -> mapPersones.put(per1.getAge(), 1));
 
         // 6 - Canvia aquest bucle for per un recorregut forEach i amb lambda
-        System.out.println("\n5");
-        for(Map.Entry entry : mapPersones.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-        }
+        System.out.println("\n5-6");
+        mapPersones.forEach((key, value) -> System.out.println(key + " : " + value));
 
         // 7 - treu un llistat de persones DONA amb lambda i stream
         System.out.println("\n7 DONES");
