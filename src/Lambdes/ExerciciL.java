@@ -60,12 +60,19 @@ public class ExerciciL {
 
         // 7 - treu un llistat de persones DONA amb lambda i stream
         System.out.println("\n7 DONES");
+        llistaPersones.stream().filter(p -> p.getGenere().equals(Persona.Genere.DONA)).forEach(System.out::println);
 
         // 8 - treu un llistat dels dos HOMES més joves (stream)
         System.out.println("\n8 HOMES + JOVES");
+        llistaPersones.stream()
+                .filter(p -> p.getGenere().equals(Persona.Genere.HOME))
+                .sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
 
         // 9- Esborrar de la llistaPersones les persones entre 30 i 40 anys (lambda)
         System.out.println("\n9");
+        llistaPersones.removeIf(p -> p.getAge() >= 30 && p.getAge() <= 40);
+        //comprovació de que s'han borrat correctament
+        llistaPersones.forEach(System.out::println);
 
         // 10 - treu un llistat de les persones que tinguin una 'a' al seu nom
         System.out.println("\n10 Amb una 'A'");
