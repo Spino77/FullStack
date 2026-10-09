@@ -66,7 +66,8 @@ public class ExerciciL {
         System.out.println("\n8 HOMES + JOVES");
         llistaPersones.stream()
                 .filter(p -> p.getGenere().equals(Persona.Genere.HOME))
-                .sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
+                .sorted(Comparator.reverseOrder())
+                .limit(2).forEach(System.out::println);
 
         // 9- Esborrar de la llistaPersones les persones entre 30 i 40 anys (lambda)
         System.out.println("\n9");
