@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class ExerciciL {
 
@@ -77,41 +78,74 @@ public class ExerciciL {
 
         // 10 - treu un llistat de les persones que tinguin una 'a' al seu nom
         System.out.println("\n10 Amb una 'A'");
+        llistaPersones.stream()
+                .filter(p -> p.getNom().contains("a"))
+                        .forEach(System.out::println);
 
         //11 - treu un llistat amb dos dies després de les dates de naixament de les persones
         System.out.println("\n11 - dates amb dos dies més");
-
+        llistaPersones.stream()
+                .map(c -> c.getDataNaixament().plusDays(2))
+                        .forEach(System.out::println);
 
         //12 - Rejovenir(modificar) dos anys a totes les persones
         System.out.println("\n12 - Rejovenir dos anys a totes les persones");
-       ;
+        llistaPersones.forEach(p -> p.setDataNaixament(p.getDataNaixament().plusYears(2)) );
+        llistaPersones.forEach(System.out::println);
 
         //13. A partir de la següent llista de noms d'alumnes crea una nova llista d'alumnes amb aquest alumnes nous
         // pots modificar la classe alumne si cal.
         List<String> alumnesNous = Arrays.asList("Pedro","Pablo","Bilma");
+        //No entenc
 
         //14. Amb un stream, mostra les persones nascudes abans de l'any 1980.
         // Utilitza una referència a mètode per mostrar cada persona.
         System.out.println("\n14 - Persones nascudes abans de 1980");
 
+        LocalDate data1980 = LocalDate.parse("1980-01-01");
+        llistaPersones.stream()
+                .filter(p -> p.getDataNaixament().isBefore(data1980))
+                .forEach(System.out::println);
+
         //15. Crea i mostra una llista de noms de les persones, ordenada alfabèticament.
         // Fes servir map i referències a mètodes.
         System.out.println("\n15 - Noms ordenats");
+
+        llistaPersones.stream()
+                .map(Persona::getNom)
+                .sorted()
+                .forEach(System.out::println);
 
         //16. Amb un stream, mostra les edats de les persones que tenen un nom de més de cinc lletres.
         // Utilitza una referència a mètode per mostrar cada edat.
         System.out.println("\n16 - Edats de persones amb noms llargs");
 
+        llistaPersones.stream()
+                .filter(p -> p.getNom().length() >= 5)
+                        .forEach(System.out::println);
+
         //17. Mostra els noms de les dones en majúscules.
         // Resol-ho amb filter, map i una referència a mètode.
         System.out.println("\n17 - Noms de les dones en majúscules");
 
+        llistaPersones.stream()
+                .filter(p -> p.getGenere().equals(Persona.Genere.DONA))
+                .map(p -> p.getNom().toUpperCase())
+                        .forEach(System.out::println);
+
         //18. Compta quantes persones van néixer al novembre utilitzant un stream.
         System.out.println("\n18 - Persones nascudes al novembre");
+
+        llistaPersones.stream()
+                .filter(p -> p.getDataNaixament().getMonthValue() == 11)
+                        .forEach(System.out::println);
 
         //19. Troba i mostra la persona més jove amb min i Comparator.comparingInt.
         // Fes servir una referència a mètode sempre que sigui possible.
         System.out.println("\n19 - Persona més jove");
+
+        llistaPersones.stream()
+                .map(p -> p.getDataNaixament())
 
         //20. Converteix alumnesNous en una llista d'objectes Alumne amb un stream
         // i Alumne::new, ordena'ls pel nom i mostra'ls amb una referència a mètode.
