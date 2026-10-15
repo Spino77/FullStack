@@ -145,7 +145,7 @@ public class ExerciciL {
         System.out.println("\n19 - Persona més jove");
 
         llistaPersones.stream()
-                .map(p -> p.getDataNaixament())
+                .map(p -> p.getDataNaixament());
 
         //20. Converteix alumnesNous en una llista d'objectes Alumne amb un stream
         // i Alumne::new, ordena'ls pel nom i mostra'ls amb una referència a mètode.
