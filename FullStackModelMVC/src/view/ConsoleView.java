@@ -22,14 +22,16 @@ public class ConsoleView {
     public String[] readReserve() {
         String[] data = new String[2];
         System.out.println("Introdueix el nom:");
-        data[0] = sc.next();
+        sc.nextLine();
+        data[0] = sc.nextLine();
         System.out.println("Introdueix el títol:");
-        data[1] = sc.next();
+        data[1] = sc.nextLine();
+        System.out.println("Reserva realitzada: '" + data[0] + "' ha reservat '" + data[1] + "'");
         return data;
+    }
 
-
-
-
+    public void closingApp() {
+        System.out.println("Tancant aplicació...");
     }
 
     public void printList(ArrayList<Reservation> allReservations) {

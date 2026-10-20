@@ -26,7 +26,7 @@ public class ReservationController {
                     cv.printList(rs.getAllReservations());
                 }
                 case 0 -> {
-                    System.out.println("Tancant aplicació...");
+                    cv.closingApp();
                     System.exit(1);
                 }
             }

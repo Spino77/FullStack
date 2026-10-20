@@ -11,6 +11,6 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reserva realitzada: " + name + " ha reservat " + title;
+        return "Nom: " + name + " | " + " Titol: " + title;
     }
 }
