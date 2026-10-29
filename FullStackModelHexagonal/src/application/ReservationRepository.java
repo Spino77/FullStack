@@ -1,17 +1,12 @@
 package application;
 
 import domain.Reservation;
+import infrastructureAdapter.InMemoryReservationRepositoryAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ReservationRepository {
-    static ArrayList<Reservation> reservationsList = new ArrayList<>();
-
-    public static void save(Reservation reservation) {
-        reservationsList.add(reservation);
-    }
-
-    public static ArrayList<Reservation> findAll() {
-        return reservationsList;
-    }
+public interface ReservationRepository {
+    void save(Reservation res);
+    List<Reservation> findAll();
 }

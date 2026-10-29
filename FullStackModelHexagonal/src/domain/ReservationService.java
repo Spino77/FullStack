@@ -3,6 +3,7 @@ package domain;
 import application.ReservationRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReservationService {
     ReservationRepository resRep;
@@ -10,14 +11,16 @@ public class ReservationService {
         this.resRep = repository;
     }
 
-    public Reservation reserve(String[] data) {
+    public void reserve(String[] data) {
         User user = new User(data[0]);
         Book book = new Book(data[1]);
 
-        return new Reservation(user.getName(), book.getTitle());
+        Reservation res = new Reservation(user.getName(), book.getTitle());
+
+        resRep.save(res);
     }
 
-    public ArrayList<Reservation> getAllReservations(ArrayList<Reservation> reservationsList) {
-        return reservationsList;
+    public List<Reservation> getAllReservations() {
+        return resRep.findAll();
     }
 }
